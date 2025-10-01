@@ -1,82 +1,49 @@
-variable "rg_name" {
-  description = "Resource Group name"
-  type        = string
-}
-
 variable "location" {
-  description = "Azure region for deployment"
   type        = string
+  description = "Azure region where resources will be deployed (e.g., East US)."
 }
 
-variable "sa_name" {
-  description = "Storage Account name"
+variable "resource_group_name" {
   type        = string
+  description = "Name of the existing Azure Resource Group to import and use."
 }
 
-variable "sa_tier" {
-  description = "Storage account performance tier (Standard)"
+variable "storage_account_name" {
   type        = string
-  default     = "Standard"
+  description = "Name of the pre-created Azure Storage Account containing the blob file."
 }
 
-variable "sa_replication" {
-  description = "Replication type (LRS, GRS)"
+variable "cdn_profile_name" {
   type        = string
-  default     = "LRS"
+  description = "Name of the Azure CDN Front Door profile to be created."
 }
 
-variable "sa_blob_public_access" {
-  description = "Set to true if blob access should be public"
-  type        = bool
-  default     = false
-}
-
-variable "vm_name" {
-  description = "VM name"
+variable "cdn_profile_sku" {
   type        = string
+  description = "SKU tier for the Azure CDN Front Door profile (e.g., Standard_AzureFrontDoor)."
 }
 
-variable "vm_password" {
-  description = "The password for the VM"
+variable "cdn_endpoint_name" {
   type        = string
-  sensitive   = true
+  description = "Name of the CDN Front Door endpoint that will expose the blob file."
 }
 
-variable "restored_vm_name" {
-  description = "restored VM name"
+variable "cdn_origin_group_name" {
   type        = string
+  description = "Name of the origin group for the CDN Front Door configuration."
 }
 
-variable "sa_sku_name" {
-  description = "Storage account performance tier (Standard_LRS)"
+variable "cdn_origin_name" {
   type        = string
-  default     = "Standard"
+  description = "Name of the origin pointing to the blob storage account."
 }
 
-variable "creator" {
-  description = "Creator email"
+variable "cdn_route_name" {
   type        = string
+  description = "Name of the route used to forward requests from the endpoint to the origin."
 }
 
-variable "sub_id" {
-  description = "Subsription ID"
+variable "blob_filename" {
   type        = string
-}
-/*
-variable "storage_account" {
-  description = "The hostname of the resource"
-  }
-
-variable "storage_key" {
-  description = "The storage key of the resource"
-  }
-
-variable "container_name" {
-  description = "The container name key of the resource"
-  }
-  */
-
-
-variable "authType" {
-  description = "The auth Type of the resource"
+  description = "Name of the blob file inside the Storage Account to be served via CDN."
 }

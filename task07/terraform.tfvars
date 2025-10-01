@@ -1,3 +1,4 @@
+/*
 rg_name               = "cmaz-yurgas2r-mod7-rg-754b"
 location              = "westeurope"
 sa_name1              = "task7storageacct"
@@ -13,6 +14,10 @@ vault_name            = "cmaz-yurgas2r-mod7-rsv"
 sa_tier               = "Standard"
 sa_replication        = "LRS"
 authType              = "Key"
+*/
+location = "East US"
+rg_name  = "cmtr-yurgas2r-mod7-rg"
+sa_name  = "cmtryurgas2rmod7sa"
 /*
 Resource group name: ${rg_name}
 Virtual machine name: ${vm_name}
