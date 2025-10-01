@@ -9,12 +9,12 @@ import {
 }
 
 resource "azurerm_resource_group" "imported_rg" {
-  name     = "cmtr-yurgas2r-mod7-rg"
+  name     = var.resource_group_name #"cmtr-yurgas2r-mod7-rg"
   location = "East US"
 }
 
 resource "azurerm_storage_account" "imported_sa" {
-  name                     = "cmtryurgas2rmod7sa"
+  name                     = var.storage_account_name #"cmtryurgas2rmod7sa"
   resource_group_name      = azurerm_resource_group.imported_rg.name
   location                 = azurerm_resource_group.imported_rg.location
   account_tier             = "Standard"
