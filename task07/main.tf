@@ -31,11 +31,11 @@ module "cdn" {
   location             = azurerm_resource_group.imported_rg.location
   storage_account_name = azurerm_storage_account.imported_sa.name
 
-  cdn_profile_name      = "cmtr-yurgas2r-mod7-fd-profile"
-  cdn_profile_sku       = "Standard_AzureFrontDoor"
-  cdn_endpoint_name     = "cmtr-yurgas2r-mod7-fd-endpoint"
-  cdn_origin_group_name = "cmtr-yurgas2r-mod7-fd-origin-group"
-  cdn_origin_name       = "cmtr-yurgas2r-mod7-fd-origin"
-  cdn_route_name        = "default"
-  blob_filename         = "blob.txt"
+  cdn_profile_name      = var.cdn_profile_name
+  cdn_profile_sku       = var.cdn_profile_sku
+  cdn_endpoint_name     = var.cdn_endpoint_name
+  cdn_origin_group_name = var.cdn_origin_group_name
+  cdn_origin_name       = var.cdn_origin_name
+  cdn_route_name        = var.cdn_route_name
+  blob_filename         = var.blob_filename
 }
