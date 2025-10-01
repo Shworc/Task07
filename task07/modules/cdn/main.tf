@@ -1,13 +1,3 @@
-import {
-  to = azurerm_resource_group.imported_rg
-  id = "/subscriptions/9295a561-dd68-488d-9a13-1acb84f317fe/resourceGroups/cmtr-yurgas2r-mod7-rg"
-}
-
-import {
-  to = azurerm_storage_account.imported_sa
-  id = "/subscriptions/9295a561-dd68-488d-9a13-1acb84f317fe/resourceGroups/cmtr-yurgas2r-mod7-rg/providers/Microsoft.Storage/storageAccounts/cmtryurgas2rmod7sa"
-}
-
 resource "azurerm_network_security_group" "vm_nsg" {
   name                = "vm-nsg"
   location            = azurerm_resource_group.rg.location
