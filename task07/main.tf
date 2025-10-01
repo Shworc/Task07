@@ -27,15 +27,15 @@ resource "azurerm_storage_account" "imported_sa" {
 module "cdn" {
   source = "./modules/cdn"
 
-  resource_group_name  = azurerm_resource_group.imported_rg.name
-  location             = azurerm_resource_group.imported_rg.location
-  storage_account_name = azurerm_storage_account.imported_sa.name
+  resource_group_name    = var.resource_group_name
+  location               = var.location
+  storage_account_name   = var.storage_account_name
+  blob_filename          = var.blob_filename
 
-  cdn_profile_name      = var.cdn_profile_name
-  cdn_profile_sku       = var.cdn_profile_sku
-  cdn_endpoint_name     = var.cdn_endpoint_name
-  cdn_origin_group_name = var.cdn_origin_group_name
-  cdn_origin_name       = var.cdn_origin_name
-  cdn_route_name        = var.cdn_route_name
-  blob_filename         = var.blob_filename
+  cdn_profile_name       = local.cdn_profile_name
+  cdn_profile_sku        = "Standard_AzureFrontDoor"
+  cdn_endpoint_name      = local.cdn_endpoint_name
+  cdn_origin_group_name  = local.cdn_origin_group_name
+  cdn_origin_name        = local.cdn_origin_name
+  cdn_route_name         = local.cdn_route_name
 }
